@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --sunny-main: radial-gradient(circle, rgb(107, 171, 255) 0%, rgb(32, 154, 255) 64%);
+    --rainy-main: radial-gradient(circle, rgba(59,59,59,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+body.sun {
+    background: var(--sunny-main);
+    font-family: 'Poppins', sans-serif;
+    max-height: 100vh;
+}
+body.rain {
+    background: var(--rainy-main);
+    font-family: 'Poppins', sans-serif;
+    max-height: 100vh;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    display: flex;
+    max-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    > .sunny {
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        > h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        > h2 {
+            color: white;
+            padding-bottom: 10vh;
+        }
+        > p.temperature {
+            color: white;
+            font-weight: 500;
+            font-size: 3rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            > img {
+                width: 50px;
+                content: url(assets/sun.svg);
+            }
+        }
+    }
+    > .rainy {
+        margin-top: 20px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        > h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        > h2 {
+            color: white;
+            padding-bottom: 10vh;
+        }
+        > p.temperature {
+            color: white;
+            font-weight: 500;
+            font-size: 3rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            > img {
+                width: 50px;
+                content: url(assets/rain.svg);
+            }
+        }
+    }
+}
+
+.input {
+    margin-top: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+    margin-bottom: 50px;
+    > .cityPick {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        width: 100%;
+        > img {
+            width: 70px;
+        }
+        > input[type=text] {
+            flex: initial;
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+        }
+        > input[type=text]:hover {
+            opacity: 80%;
+        }
+    }
+    > .tempMeasurement {
+        > button {
+            border: none;
+            background-color: rgb(32, 32, 255);
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px 0px black;
+        }
+        > button:hover { 
+            opacity: 80%;
+            cursor: pointer;
+        }
+    }
+}
