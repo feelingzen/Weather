@@ -10,7 +10,7 @@ let unit = 'Celcius'
 // unit = 'Fahrenheit'
 
 
-inputField.addEventListener('input', () => {
+inputField.addEventListener('input', async () => {
     const inputValue = inputField.value
     if (weatherImage.class == 'sunny') {
         weatherImage.classList.remove('sunny')
@@ -19,7 +19,17 @@ inputField.addEventListener('input', () => {
         weatherImage.classList.remove('rainy')
         body.classList.remove('rain')
     }
-    returnAPI(inputValue, city, country, temperature, unit, weatherImage, body)
+    let data = await returnAPI(inputValue)
+    city.textContent = data.location.name
+    country.textContent = data.location.country
+    temperature.textContent = unit == 'Celcius' ? data.current.temp_c + '°' : data.current.temp_f  + '°'
+    if (data.current.condition.text == 'Sunny') {
+        weatherImage.classList.add('sunny')
+        body.classList.add('sun')
+    } else {
+        weatherImage.classList.add('rainy')
+        body.classList.add('rain')
+    }
 })
 toggleUnits.addEventListener('click', () => {
     if (unit == 'Celcius') {
